@@ -9,6 +9,7 @@ export class ButtonComponent implements OnInit {
   @Input() type!: string;
   @Input() icon!: string;
   @Input() color!: string;
+  @Input() style!: string;
 
   // @ViewChild('buttonNew') buttonNew: any;
 

@@ -78,7 +78,7 @@
           Log in
         </button> -->
 
-        <button
+        <!-- <button
           nz-button
           class="login-form-button login-form-margin"
           [nzType]="'primary'"
@@ -86,11 +86,16 @@
           (click)="redirect('/dashboard')"
         >
           Log in
-        </button>
+        </button> -->
 
-        <!-- <app-button icon="search" color="primary" type="submit"
+        <app-button
+          icon="search"
+          color="primary"
+          type="submit"
+          style="width: 100%"
+          (click)="redirect('/dashboard')"
           >ค้นหา</app-button
-        > -->
+        >
 
         <!-- Or
         <a>register now!</a> -->

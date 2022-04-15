@@ -20,6 +20,7 @@
       : 'default'
   "
   [nzDanger]="color === 'danger'"
+  [style]="style"
 >
   <i nz-icon *ngIf="icon && icon !== 'hide'" [nzType]="icon"></i>
   <ng-content></ng-content>
