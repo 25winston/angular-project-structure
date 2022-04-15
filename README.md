@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # angular-project-structure
 
-Demo URL : [http://demo-angular.rawin.co](http://demo-angular.rawin.co){:target="\_blank"}
+Demo URL : [http://demo-angular.rawin.co](http://demo-angular.rawin.co)
