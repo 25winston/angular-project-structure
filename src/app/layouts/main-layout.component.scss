@@ -1,0 +1,64 @@
+.ant-layout {
+  overflow: hidden;
+}
+
+.header-menu {
+  line-height: 64px;
+}
+
+.sider-menu {
+  height: 100%;
+  border-right: 0;
+}
+
+.inner-layout {
+  padding: 0 24px 20px;
+}
+
+nz-breadcrumb {
+  margin: 16px 0;
+}
+
+nz-content {
+  background: #fff;
+  padding: 24px;
+}
+
+nz-footer {
+  text-align: center;
+  padding: 20px 20px 0px;
+}
+
+.ant-layout-header {
+  background: #3366cc;
+  box-shadow: rgb(0 0 0 / 5%) 0px 1px 6px -1px;
+  line-height: 1;
+  .logo {
+    width: 120px;
+    background: unset;
+    padding: 5px 0px 5px 0px;
+    float: left;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 21px;
+    height: 100%;
+  }
+  .img-profile {
+    margin-top: -5px;
+    margin-right: 3px;
+  }
+  .ant-menu.ant-menu-horizontal {
+    background: unset;
+    float: right;
+    .ant-menu-item {
+      color: #fff;
+      &:hover {
+        color: #fff;
+      }
+      &.ant-menu-item-selected {
+        color: #fff;
+      }
+    }
+  }
+}

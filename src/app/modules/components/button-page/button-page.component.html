@@ -1,0 +1,31 @@
+<h1>Button works!</h1>
+<div nz-row [nzGutter]="[7, 7]">
+  <div nz-col [nzSpan]="24">
+    <app-button
+      icon="search"
+      color="primary"
+      type="submit"
+      (click)="changeName('Test Click 1')"
+      >ค้นหา</app-button
+    >
+  </div>
+  <div nz-col [nzSpan]="24">
+    <app-button
+      icon="search"
+      color="danger"
+      (click)="changeName('Test Click 2')"
+      >ค้นหา</app-button
+    >
+  </div>
+  <div nz-col [nzSpan]="24">
+    <app-button icon="search" color="dashed">ค้นหา</app-button>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <app-button icon="search" color="text">ค้นหา</app-button>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <app-button icon="search" color="link">ค้นหา</app-button>
+  </div>
+</div>
+
+<h2>{{ text1 }}</h2>

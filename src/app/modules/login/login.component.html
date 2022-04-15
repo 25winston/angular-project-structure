@@ -1,0 +1,100 @@
+<div nz-row nzJustify="center">
+  <div
+    nz-col
+    nzXs="24"
+    nzSm="24"
+    nzMd="24"
+    nzLg="14"
+    nzXl="14"
+    [ngClass]="'login-bg'"
+  >
+    <div [ngClass]="'col'">
+      <div [ngClass]="'logo-sys'"></div>
+    </div>
+  </div>
+  <div
+    nz-col
+    nzXs="24"
+    nzSm="24"
+    nzMd="24"
+    nzLg="10"
+    nzXl="10"
+    [ngClass]="'form-login'"
+  >
+    <div [ngClass]="'col'">
+      <form
+        nz-form
+        [formGroup]="validateForm"
+        class="login-form"
+        (ngSubmit)="submitForm()"
+      >
+        <nz-row [nzJustify]="'center'">
+          <nz-col nzLg="24">
+            <div class="head1">ยินดีต้อนรับสู่</div>
+            <div class="head2">โปรแกรมบริหารจัดการ<br />ตรวจสอบภายใน</div>
+            <div class="head3">กรุณาลงชื่อเข้าใช้ด้วยบัญชีของท่าน</div>
+          </nz-col>
+        </nz-row>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your username!">
+            <nz-input-group nzPrefixIcon="user">
+              <input
+                type="text"
+                nz-input
+                formControlName="userName"
+                placeholder="Username"
+              />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your Password!">
+            <nz-input-group nzPrefixIcon="lock">
+              <input
+                type="password"
+                nz-input
+                formControlName="password"
+                placeholder="Password"
+              />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <!-- <div nz-row class="login-form-margin">
+          <div nz-col [nzSpan]="12">
+            <label nz-checkbox formControlName="remember">
+              <span>Remember me</span>
+            </label>
+          </div>
+          <div nz-col [nzSpan]="12">
+            <a class="login-form-forgot">Forgot password</a>
+          </div>
+        </div> -->
+
+        <!-- <button
+          nz-button
+          class="login-form-button login-form-margin"
+          [nzType]="'primary'"
+        >
+          Log in
+        </button> -->
+
+        <button
+          nz-button
+          class="login-form-button login-form-margin"
+          [nzType]="'primary'"
+          type="button"
+          (click)="redirect('/dashboard')"
+        >
+          Log in
+        </button>
+
+        <!-- <app-button icon="search" color="primary" type="submit"
+          >ค้นหา</app-button
+        > -->
+
+        <!-- Or
+        <a>register now!</a> -->
+      </form>
+    </div>
+  </div>
+</div>

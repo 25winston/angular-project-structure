@@ -1,0 +1,40 @@
+<h1>Input works!</h1>
+
+<div nz-row [nzGutter]="[7, 7]">
+  <div nz-col [nzSpan]="24">
+    Example Select No Data
+    <app-select></app-select>
+  </div>
+  <div nz-col [nzSpan]="24">
+    Example Select Data
+    <app-select [options]="listOfOption"></app-select>
+  </div>
+  <div nz-col [nzSpan]="24">
+    Default Value Data
+    <app-select
+      [selectedValue]="selectedValue"
+      [options]="listOfOption"
+    ></app-select>
+  </div>
+</div>
+
+<h1>Select From GraphQL API</h1>
+<div nz-row [nzGutter]="[7, 7]">
+  <div nz-col [nzSpan]="24">
+    Example Select
+    <app-select
+      [loading]="loadingData1"
+      [options]="optionData1"
+      [handleChange]="handleChange"
+    ></app-select>
+  </div>
+  <div nz-col [nzSpan]="24">
+    Example Select Default
+    <app-select
+      [loading]="loadingData1"
+      [options]="optionData1"
+      [handleChange]="handleChange"
+      [selectedValue]="selectedData1"
+    ></app-select>
+  </div>
+</div>

@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./assets/css/fonts.css";
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  overflow: hidden;
+  font-family: "NotoSansThai";
+}
+
+.ant-layout-content {
+  font-family: "ThSarabunNew";
+}
+
+.ant-layout.inner-layout {
+  height: calc(100vh - 64px);
+  overflow-y: auto !important;
+}
+
+.ant-layout-content {
+  min-height: calc(100vh - 180px) !important;
+}

@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { NZ_I18N, th_TH } from 'ng-zorro-antd/i18n';
 import { HttpClientModule } from '@angular/common/http';
+import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
+import { HttpLink } from 'apollo-angular/http';
+import { InMemoryCache } from '@apollo/client/core';
 
 import { NzAffixModule } from 'ng-zorro-antd/affix';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
@@ -74,119 +75,99 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzResizableModule } from 'ng-zorro-antd/resizable';
 import { NzPipesModule } from 'ng-zorro-antd/pipes';
 
-import { ConfigModule } from './config.module';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-// import { FormBookComponent } from './component/form-book/form-book.component';
-// import { BookListComponent } from './component/book-list/book-list.component';
-
-import { LoginLayoutComponent } from './layouts/login-layout.component';
-import { MainLayoutComponent } from './layouts/main-layout.component';
-
 import { ButtonComponent } from './components/button/button.component';
 import { SelectComponent } from './components/select/select.component';
 
-import { Error404Component } from './modules/errors/error404.component';
-import { DashboardComponent } from './modules/dashboard/dashboard.component';
-import { LoginComponent } from './modules/login/login.component';
-import { ButtonPageComponent } from './modules/components/button-page/button-page.component';
-import { InputPageComponent } from './modules/components/input-page/input-page.component';
-
 @NgModule({
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    NoopAnimationsModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    ConfigModule,
+  imports: [CommonModule, ApolloModule, HttpClientModule],
+  // declarations: [ButtonComponent, SelectComponent],
+  exports: [
+    // ButtonComponent,
+    // SelectComponent,
     //---
-    NzBreadCrumbModule,
-    NzAffixModule,
-    NzAlertModule,
-    NzAnchorModule,
-    NzAutocompleteModule,
-    NzAvatarModule,
-    NzBackTopModule,
-    NzBadgeModule,
-    NzButtonModule,
-    NzBreadCrumbModule,
-    NzCalendarModule,
-    NzCardModule,
-    NzCarouselModule,
-    NzCascaderModule,
-    NzCheckboxModule,
-    NzCollapseModule,
-    NzCommentModule,
-    NzDatePickerModule,
-    NzDescriptionsModule,
-    NzDividerModule,
-    NzDrawerModule,
-    NzDropDownModule,
-    NzEmptyModule,
-    NzFormModule,
-    NzGridModule,
-    NzI18nModule,
-    NzIconModule,
-    NzImageModule,
-    NzInputModule,
-    NzInputNumberModule,
-    NzLayoutModule,
-    NzListModule,
-    NzMentionModule,
-    NzMenuModule,
-    NzMessageModule,
-    NzModalModule,
-    NzNoAnimationModule,
-    NzNotificationModule,
-    NzPageHeaderModule,
-    NzPaginationModule,
-    NzPopconfirmModule,
-    NzPopoverModule,
-    NzProgressModule,
-    NzRadioModule,
-    NzRateModule,
-    NzResultModule,
-    NzSelectModule,
-    NzSkeletonModule,
-    NzSliderModule,
-    NzSpinModule,
-    NzStatisticModule,
-    NzStepsModule,
-    NzSwitchModule,
-    NzTableModule,
-    NzTabsModule,
-    NzTagModule,
-    NzTimePickerModule,
-    NzTimelineModule,
-    NzToolTipModule,
-    NzTransButtonModule,
-    NzTransferModule,
-    NzTreeModule,
-    NzTreeViewModule,
-    NzTreeSelectModule,
-    NzTypographyModule,
-    NzUploadModule,
-    NzWaveModule,
-    NzResizableModule,
-    NzPipesModule,
+    // NzAffixModule,
+    // NzAlertModule,
+    // NzAnchorModule,
+    // NzAutocompleteModule,
+    // NzAvatarModule,
+    // NzBackTopModule,
+    // NzBadgeModule,
+    // NzButtonModule,
+    // NzBreadCrumbModule,
+    // NzCalendarModule,
+    // NzCardModule,
+    // NzCarouselModule,
+    // NzCascaderModule,
+    // NzCheckboxModule,
+    // NzCollapseModule,
+    // NzCommentModule,
+    // NzDatePickerModule,
+    // NzDescriptionsModule,
+    // NzDividerModule,
+    // NzDrawerModule,
+    // NzDropDownModule,
+    // NzEmptyModule,
+    // NzFormModule,
+    // NzGridModule,
+    // NzI18nModule,
+    // NzIconModule,
+    // NzImageModule,
+    // NzInputModule,
+    // NzInputNumberModule,
+    // NzLayoutModule,
+    // NzListModule,
+    // NzMentionModule,
+    // NzMenuModule,
+    // NzMessageModule,
+    // NzModalModule,
+    // NzNoAnimationModule,
+    // NzNotificationModule,
+    // NzPageHeaderModule,
+    // NzPaginationModule,
+    // NzPopconfirmModule,
+    // NzPopoverModule,
+    // NzProgressModule,
+    // NzRadioModule,
+    // NzRateModule,
+    // NzResultModule,
+    // NzSelectModule,
+    // NzSkeletonModule,
+    // NzSliderModule,
+    // NzSpinModule,
+    // NzStatisticModule,
+    // NzStepsModule,
+    // NzSwitchModule,
+    // NzTableModule,
+    // NzTabsModule,
+    // NzTagModule,
+    // NzTimePickerModule,
+    // NzTimelineModule,
+    // NzToolTipModule,
+    // NzTransButtonModule,
+    // NzTransferModule,
+    // NzTreeModule,
+    // NzTreeViewModule,
+    // NzTreeSelectModule,
+    // NzTypographyModule,
+    // NzUploadModule,
+    // NzWaveModule,
+    // NzResizableModule,
+    // NzPipesModule,
   ],
-  declarations: [
-    AppComponent,
-    //--- Element component ---
-    LoginLayoutComponent,
-    MainLayoutComponent,
-    ButtonComponent,
-    SelectComponent,
-    //--- Page Component
-    Error404Component,
-    DashboardComponent,
-    LoginComponent,
-    ButtonPageComponent,
-    InputPageComponent,
+  providers: [
+    { provide: NZ_I18N, useValue: th_TH },
+    {
+      provide: APOLLO_OPTIONS,
+      useFactory: (httpLink: HttpLink) => {
+        return {
+          cache: new InMemoryCache(),
+          link: httpLink.create({
+            uri: 'https://bemisreport.bangkok.go.th/api/graphql',
+          }),
+        };
+      },
+      deps: [HttpLink],
+    },
   ],
-  bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class ConfigModule {}

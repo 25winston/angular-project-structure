@@ -1,0 +1,87 @@
+<nz-layout>
+  <nz-header>
+    <div class="logo">My Angular</div>
+    <ul nz-menu nzTheme="light" nzMode="horizontal" class="header-menu">
+      <li
+        nz-menu-item
+        nz-dropdown
+        nzTrigger="click"
+        [nzDropdownMenu]="menu"
+        nzPlacement="bottomRight"
+      >
+        <img
+          nz-image
+          nzDisablePreview="true"
+          height="50px"
+          class="img-profile"
+          [nzSrc]="imageProfile"
+        />
+        Rawin Ormklang
+      </li>
+    </ul>
+  </nz-header>
+  <nz-layout>
+    <nz-sider nzWidth="200px" nzTheme="light">
+      <ul nz-menu nzMode="inline" class="sider-menu">
+        <li
+          nz-menu-item
+          nz-tooltip
+          nzTooltipPlacement="right"
+          [nzTooltipTitle]="'Dashboard'"
+          routerLinkActive="ant-menu-item-selected"
+          routerLink="/dashboard"
+        >
+          <i nz-icon nzType="dashboard"></i>
+          <span>Dashboard</span>
+        </li>
+        <li nz-submenu nzOpen nzIcon="radar-chart" nzTitle="Component">
+          <ul>
+            <li
+              nz-menu-item
+              routerLinkActive="ant-menu-item-selected"
+              routerLink="/component/button"
+            >
+              Button
+            </li>
+            <li
+              nz-menu-item
+              routerLinkActive="ant-menu-item-selected"
+              routerLink="/component/input"
+            >
+              Input
+            </li>
+          </ul>
+        </li>
+        <!-- <li nz-submenu nzTitle="subnav 2" nzIcon="laptop">
+          <ul>
+            <li nz-menu-item>option5</li>
+            <li nz-menu-item>option6</li>
+            <li nz-menu-item>option7</li>
+            <li nz-menu-item>option8</li>
+          </ul>
+        </li> -->
+      </ul>
+    </nz-sider>
+    <nz-layout class="inner-layout">
+      <div class="main-content">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+          <nz-breadcrumb-item>List</nz-breadcrumb-item>
+          <nz-breadcrumb-item>App</nz-breadcrumb-item>
+        </nz-breadcrumb>
+        <nz-content>
+          <router-outlet></router-outlet>
+        </nz-content>
+        <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+      </div>
+    </nz-layout>
+  </nz-layout>
+</nz-layout>
+
+<!-- Dropdown -->
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu>
+    <li nz-menu-item>เปลี่ยนรหัสผ่าน</li>
+    <li nz-menu-item (click)="redirect('/logout')">ออกจากระบบ</li>
+  </ul>
+</nz-dropdown-menu>

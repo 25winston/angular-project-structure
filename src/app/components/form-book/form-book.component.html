@@ -1,0 +1,48 @@
+<div class="container mt-3">
+  <div
+    class="d-flex justify-content-center between flex-wrap flex-md-nowrap align-items-center pt-2 pb-2 mb-3 border-bottom"
+  >
+    <h1>{{ this.getTypeAction === "edit" ? "Edit" : "Add" }} Data</h1>
+  </div>
+
+  <div class="row justify-content-center center mt-3">
+    <div class="col-md-6">
+      <form [formGroup]="bookForm" (validSubmit)="onSubmit()">
+        <div class="form-group" [customErrorMessages]="customErrorMessages">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" formControlName="name" />
+        </div>
+        <div class="form-group" [customErrorMessages]="customErrorMessages">
+          <label for="name">Price</label>
+          <input type="text" class="form-control" formControlName="price" />
+        </div>
+        <div class="form-group">
+          <label for="name">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="description"
+          />
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-primary btn-block" type="submit">
+                Save
+              </button>
+            </div>
+            <div class="col">
+              <button
+                class="btn btn-secondary btn-block"
+                type="button"
+                (click)="goToPage('/book-list')"
+              >
+                Back
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
