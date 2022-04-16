@@ -107,7 +107,6 @@ import { InputPageComponent } from './modules/components/input-page/input-page.c
     ReactiveFormsModule,
     HttpClientModule,
     ApolloModule,
-    // ConfigModule,
     //---
     NzBreadCrumbModule,
     NzAffixModule,

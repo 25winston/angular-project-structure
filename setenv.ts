@@ -1,7 +1,21 @@
 import fs from 'fs';
 import { argv } from 'yargs';
 
+//--- Check File Exits ---
 let targetPath = './src/environments/environment.ts';
+const targetPathProd = `./src/environments/environment.prod.ts`;
+const dir_export = './src/environments';
+if (!fs.existsSync(dir_export)) {
+  fs.mkdirSync(dir_export);
+}
+if (!fs.existsSync(targetPath)) {
+  fs.openSync(targetPath, 'w'); //create file empty
+}
+if (!fs.existsSync(targetPathProd)) {
+  fs.openSync(targetPathProd, 'w'); //create file empty
+}
+
+//--- Read File .env & Create File environment ---
 let production = false;
 let readenv = '.env';
 if (argv.APP_ENV === 'production') {
@@ -10,7 +24,7 @@ if (argv.APP_ENV === 'production') {
   } else if (fs.existsSync('.env.test')) {
     readenv = '.env.test';
   }
-  targetPath = `./src/environments/environment.prod.ts`;
+  targetPath = targetPathProd;
   production = true;
 }
 require('dotenv').config({ path: readenv });

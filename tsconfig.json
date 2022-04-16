@@ -3,6 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "types": ["node"],
+    "typeRoots": ["node_modules/@types"],
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -20,7 +21,28 @@
     "module": "CommonJS",
     "lib": ["es2021", "dom"],
     "strict": false,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "removeComments": true,
+    "incremental": true,
+    "skipLibCheck": true,
+    "noEmitOnError": true,
+    "alwaysStrict": false,
+    "noImplicitAny": false,
+    "paths": {
+      "crypto": ["./node_modules/crypto-browserify"],
+      "path": ["./node_modules/path-browserify"],
+      "stream": ["./node_modules/stream-browserify"],
+      "constants": ["./node_modules/constants-browserify"],
+      "assert": ["./node_modules/assert"],
+      "http": ["./node_modules/stream-http"],
+      "https": ["./node_modules/https-browserify"],
+      "os": ["./node_modules/os-browserify"],
+      "fs": ["./node_modules/fs-web"],
+      "fs-web": ["./node_modules/fs-web"],
+      "file-exists": ["./node_modules/file-exists"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

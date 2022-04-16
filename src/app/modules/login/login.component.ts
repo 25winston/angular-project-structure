@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
+  encapsulation: ViewEncapsulation.None, //ทำให้ scss มองเห็น component ลูกได้
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })

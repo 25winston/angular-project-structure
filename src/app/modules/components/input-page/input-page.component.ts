@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
+import _ from 'lodash';
+import CryptoJS from 'crypto-js';
+import * as fs from 'fs';
+import fileExists from 'file-exists';
+import moment from 'moment';
+import cheerio from 'cheerio';
 
 const GET_DATA = gql`
   query GetGradeLevels {
@@ -41,6 +47,15 @@ export class InputPageComponent implements OnInit {
   constructor(private apollo: Apollo) {}
 
   ngOnInit(): void {
+    // console.log('lodash ', _);
+    // console.log('CryptoJS ', CryptoJS);
+    // console.log('fs ', fs);
+    // console.log('fileExists ', fileExists);
+    // console.log('moment ', moment);
+    console.log('cheerio ', cheerio);
+
+    //---
+
     setTimeout(() => {
       this.setValueOption();
     }, 5000);
