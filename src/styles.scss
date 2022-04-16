@@ -23,3 +23,7 @@ body {
 .ant-layout-content {
   min-height: calc(100vh - 180px) !important;
 }
+
+[type="submit"] {
+  -webkit-appearance: unset;
+}
