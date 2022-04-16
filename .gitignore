@@ -42,3 +42,9 @@ testem.log
 Thumbs.db
 package-lock.json
 yarn.lock
+
+.env
+.env.production
+.env.test
+/src/environments/environment.prod.ts
+/src/environments/environment.ts

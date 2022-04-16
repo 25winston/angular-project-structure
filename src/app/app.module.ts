@@ -3,7 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { NZ_I18N, th_TH } from 'ng-zorro-antd/i18n';
 import { HttpClientModule } from '@angular/common/http';
+import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
+import { HttpLink } from 'apollo-angular/http';
+import { InMemoryCache } from '@apollo/client/core';
 
 import { NzAffixModule } from 'ng-zorro-antd/affix';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
@@ -74,7 +79,7 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzResizableModule } from 'ng-zorro-antd/resizable';
 import { NzPipesModule } from 'ng-zorro-antd/pipes';
 
-import { ConfigModule } from './config.module';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 // import { FormBookComponent } from './component/form-book/form-book.component';
@@ -101,7 +106,8 @@ import { InputPageComponent } from './modules/components/input-page/input-page.c
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ConfigModule,
+    ApolloModule,
+    // ConfigModule,
     //---
     NzBreadCrumbModule,
     NzAffixModule,
@@ -188,5 +194,20 @@ import { InputPageComponent } from './modules/components/input-page/input-page.c
     InputPageComponent,
   ],
   bootstrap: [AppComponent],
+  providers: [
+    { provide: NZ_I18N, useValue: th_TH },
+    {
+      provide: APOLLO_OPTIONS,
+      useFactory: (httpLink: HttpLink) => {
+        return {
+          cache: new InMemoryCache(),
+          link: httpLink.create({
+            uri: environment.API_URL,
+          }),
+        };
+      },
+      deps: [HttpLink],
+    },
+  ],
 })
 export class AppModule {}
