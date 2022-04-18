@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "nocache": "rm -rf .angular/cache",
+    "clearcache": "rm -rf .angular/cache",
     "config": "ts-node ./setenv.ts",
-    "start": "npm run config -- && ng serve",
+    "start": "npm run clearcache && npm run config -- && ng serve --open",
     "build": "rm -rf dist && npm run config -- --APP_ENV=production && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
